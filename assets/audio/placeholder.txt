@@ -1,0 +1,29 @@
+This folder will contain Colombian music samples:
+
+GENRES:
+- vallenato_sample.mp3
+- cumbia_sample.mp3
+- bambuco_sample.mp3
+- joropo_sample.mp3
+- porro_sample.mp3
+- currulao_sample.mp3
+- mapale_sample.mp3
+- bullerengue_sample.mp3
+- rajaleña_sample.mp3
+
+INSTRUMENTS:
+- acordeon_sample.mp3
+- guitarra_sample.mp3
+- tambora_sample.mp3
+- tiple_sample.mp3
+- marimba_sample.mp3
+- arpa_sample.mp3
+- guacharaca_sample.mp3
+- cununos_sample.mp3
+- bandola_sample.mp3
+
+All audio files should be:
+- MP3 format
+- 15-30 seconds duration
+- Good quality but compressed for web
+- Representative of the instrument/genre

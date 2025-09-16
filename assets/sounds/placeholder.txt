@@ -1,0 +1,6 @@
+This folder will contain sound effects for the game:
+- success.mp3 - Sound played when answer is correct
+- error.mp3 - Sound played when answer is incorrect
+- background.mp3 - Optional background music
+
+Audio files should be in MP3 format for best browser compatibility.

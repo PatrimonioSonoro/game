@@ -1,0 +1,30 @@
+This folder will contain images for the game:
+
+GENRE IMAGES:
+- vallenato.jpg - Traditional vallenato musicians
+- cumbia.jpg - Cumbia dancers in traditional dress
+- bambuco.jpg - Andean musicians with traditional instruments
+- joropo.jpg - Llanero dancers and musicians
+- porro.jpg - Caribbean wind band
+- currulao.jpg - Pacific coast marimba ensemble
+- mapale.jpg - Mapalé dancers
+- bullerengue.jpg - Women performing bullerengue
+- rajaleña.jpg - Traditional Huila/Tolima musicians
+
+INSTRUMENT IMAGES:
+- acordeon.jpg - Traditional accordion
+- guitarra.jpg - Classical guitar
+- tambora.jpg - Large drum
+- tiple.jpg - Colombian tiple (12-string guitar)
+- marimba.jpg - Pacific coast marimba
+- arpa.jpg - Llanero harp
+- guacharaca.jpg - Traditional scraper instrument
+- cununos.jpg - Pair of conical drums
+- bandola.jpg - Colombian bandola
+
+All images should be:
+- JPG format
+- 800x600 pixels or similar aspect ratio
+- Optimized for web (under 200KB each)
+- High quality and culturally authentic
+- Properly licensed for use

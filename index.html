@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patrimonio Sonoro - Juego Musical Interactivo</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo" onclick="window.open('http://skcs444scs4ogwgk0soccs8k.84.247.182.197.sslip.io/', '_blank')" style="cursor: pointer;">
+                <img src="assets/images/logo_sin_letra_transparente.png" alt="Patrimonio Sonoro" class="logo-image">
+                <div class="logo-text">
+                    <h1>Patrimonio Sonoro</h1>
+                    <p>Música Tradicional Colombiana</p>
+                    <small>SENA • AudioBrand</small>
+                </div>
+            </div>
+            <div class="score-display">
+                <span>Puntuación: <span id="score">0</span></span>
+                <span>Nivel: <span id="level">1</span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Game Container -->
+    <main class="game-container">
+        <!-- Welcome Screen -->
+        <section id="welcome-screen" class="screen active">
+            <div class="welcome-content">
+                <h2>¡Bienvenido al Mundo Musical Colombiano!</h2>
+                <p>Explora la riqueza de nuestra música tradicional a través de juegos interactivos</p>
+                <div class="game-modes">
+                    <button class="mode-btn" data-mode="instruments">
+                        🎺 Reconoce Instrumentos
+                    </button>
+                    <button class="mode-btn" data-mode="culture">
+                        🌎 Cultura Musical
+                    </button>
+                </div>
+                <div class="website-link-section">
+                    <button class="website-link-btn" onclick="window.open('http://skcs444scs4ogwgk0soccs8k.84.247.182.197.sslip.io/', '_blank')">
+                        🌐 Conoce más sobre Patrimonio Sonoro
+                    </button>
+                </div>
+                <div class="difficulty-selector">
+                    <h3>Selecciona la Dificultad:</h3>
+                    <div class="difficulty-buttons">
+                        <button class="difficulty-btn active" data-difficulty="easy">Fácil</button>
+                        <button class="difficulty-btn" data-difficulty="medium">Intermedio</button>
+                        <button class="difficulty-btn" data-difficulty="hard">Difícil</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Screen -->
+        <section id="game-screen" class="screen">
+            <div class="game-header">
+                <button id="back-btn" class="back-btn">← Volver</button>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="timer">
+                    <span id="timer">30</span>s
+                </div>
+            </div>
+
+            <div class="game-content">
+                <div class="question-container">
+                    <h3 id="question-title">Pregunta</h3>
+                    <div id="question-content">
+                        <!-- Dynamic content will be inserted here -->
+                    </div>
+                </div>
+
+                <div class="answers-container">
+                    <div id="answers-grid" class="answers-grid">
+                        <!-- Answer options will be inserted here -->
+                    </div>
+                </div>
+
+                <div class="game-info">
+                    <div id="cultural-info" class="cultural-info hidden">
+                        <h4>Información Cultural</h4>
+                        <p id="cultural-text"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Screen -->
+        <section id="results-screen" class="screen">
+            <div class="results-content">
+                <h2>¡Resultados!</h2>
+                <div class="final-score">
+                    <span class="score-number" id="final-score">0</span>
+                    <span class="score-label">puntos</span>
+                </div>
+                <div class="performance-stats">
+                    <div class="stat">
+                        <span class="stat-value" id="correct-answers">0</span>
+                        <span class="stat-label">Respuestas Correctas</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value" id="total-questions">0</span>
+                        <span class="stat-label">Preguntas Totales</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value" id="accuracy">0%</span>
+                        <span class="stat-label">Precisión</span>
+                    </div>
+                </div>
+                <div class="achievement" id="achievement">
+                    <h3 id="achievement-title">¡Logro Desbloqueado!</h3>
+                    <p id="achievement-text"></p>
+                </div>
+                <div class="action-buttons">
+                    <button id="play-again-btn" class="primary-btn">Jugar de Nuevo</button>
+                    <button id="share-btn" class="secondary-btn">Compartir Resultado</button>
+                    <button id="home-btn" class="secondary-btn">Inicio</button>
+                    <button id="website-btn" class="secondary-btn" onclick="window.open('http://skcs444scs4ogwgk0soccs8k.84.247.182.197.sslip.io/', '_blank')">
+                        🌐 Visitar Patrimonio Sonoro
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cultural Info Modal -->
+        <div id="info-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h3 id="modal-title">Información Cultural</h3>
+                <div id="modal-body">
+                    <img id="modal-image" src="" alt="">
+                    <p id="modal-text"></p>
+                    <div class="modal-tags">
+                        <span class="tag">Región: <span id="modal-region"></span></span>
+                        <span class="tag">Época: <span id="modal-period"></span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Patrimonio Sonoro - Preservando la Música Colombiana</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/patrimoniosonoro?igsh=MTJyYjdpc2NtczUzYQ==" class="social-link">
+                    <img src="assets/iconos/instagram.png" alt="Instagram" class="social-icon">
+                    
+                </a>
+                <a href="https://www.facebook.com/share/1AYW6Q5TJu/" class="social-link">
+                    <img src="assets/iconos/facebook.png" alt="Facebook" class="social-icon">
+                
+                </a>
+                <a href="https://youtube.com/@patrimoniosonoro_audiobrand?si=buRBdvYKubfOsq-p" class="social-link">
+                    <img src="assets/iconos/youtube.png" alt="YouTube" class="social-icon">
+                    
+                </a>
+                <a href="https://www.tiktok.com/@patrimonio.sonoro?_t=ZS-8zaNfJhRgoK&_r=1" class="social-link">
+                    <img src="assets/iconos/tik-tok.png" alt="TikTok" class="social-icon">
+            
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Audio Elements -->
+    <audio id="game-audio" preload="none">
+        <source src="" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <audio id="success-sound" preload="auto">
+        <source src="assets/sounds/success.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="error-sound" preload="auto">
+        <source src="assets/sounds/error.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
