@@ -11,7 +11,7 @@ class ColombianMusicGame {
         this.timeLeft = 30;
         this.timer = null;
         this.gameActive = false;
-        this.achievements = this.loadAchievements();
+        this.achievement1s = this.loadAchievements();
         this.gameStats = this.loadGameStats();
         this.audioContext = null;
         this.currentAudio = null;

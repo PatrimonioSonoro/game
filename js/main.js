@@ -31,8 +31,8 @@ class PatrimonioSonoroApp {
             // Initialize service worker for offline support (if available)
             this.initServiceWorker();
 
-            // Show welcome screen
-            UI.showWelcomeScreen();
+            // Show new home/intro screen
+            UI.showHomeScreen();
 
             this.isInitialized = true;
             console.log('Patrimonio Sonoro App initialized successfully');

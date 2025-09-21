@@ -73,6 +73,96 @@ body {
     margin-bottom: 0.25rem;
 }
 
+.info-text {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0 auto 0.5rem;
+    text-align: center;
+}
+
+/* Hide only header on home screen and center hero */
+body.home-active .header {
+    display: none;
+}
+
+body.home-active .game-container {
+    min-height: calc(100vh - 140px); /* deja espacio visual para el footer */
+    padding: 0; /* quitar padding extra */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Footer with rounded corners only on Home screen */
+body.home-active .footer {
+    width: 100%;
+    margin: 0; /* sin espacios en blanco alrededor */
+    border-radius: 0; /* ocupar todo el ancho sin esquinas visibles */
+    overflow: hidden;
+    box-shadow: none; /* sin sombra para que no se perciba separación */
+    /* Fondo con imagen en Home */
+    background-image: url('../assets/images/');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #000000; /* asegurar contraste del texto */
+}
+
+@media (max-width: 768px) {
+    body.home-active .footer {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+}
+
+/* Background image for Home screen */
+#home-screen {
+    background-image: url('../assets/images/fondo_game.jpg');
+    background-size: cover;
+    opacity: 95%;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    min-height: calc(100vh - 140px);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Make home screen span full width (override .screen defaults) */
+#home-screen.screen {
+    max-width: none;
+    padding: 0;
+}
+
+/* Transparent content box so the background is visible full-screen */
+#home-screen .home-content {
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 3rem 1rem;
+}
+
+/* Improve text readability on home background */
+#home-screen .brand-title {
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+}
+
+#home-screen .info-text,
+#home-screen .tagline {
+    color: rgba(255,255,255,0.95);
+    text-shadow: 0 1px 6px rgba(0,0,0,0.35);
+}
+
+/* Ensure the start button stands out on varied backgrounds */
+#home-screen .start-btn {
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
 .logo-text p {
     color: var(--text-secondary);
     font-size: 0.9rem;
@@ -132,20 +222,32 @@ body {
     padding: 3rem;
     border-radius: 20px;
     box-shadow: 0 10px 40px var(--shadow);
+    animation: fadeIn 0.6s ease-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
-.welcome-content h2 {
+.brand-title {
     color: var(--text-primary);
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
+    font-size: 2.4rem;
+    text-align: center;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
 }
 
-.welcome-content p {
+.tagline {
     color: var(--text-secondary);
     font-size: 1.2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
+}
+
+.info-text {
+    color: var(--text-secondary);
     line-height: 1.6;
+    text-align: center;
 }
 
 /* Game Mode Buttons */
@@ -381,6 +483,17 @@ body {
     transform: scale(1.05);
 }
 
+.brand-logo {
+    width: 380px;
+    height: 290px;
+    margin: 12px auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 6px 22px var(--shadow);
+    margin-bottom: 1.25rem;
+}
+
 .instrument-image {
     max-width: 250px;
     max-height: 180px;
@@ -544,6 +657,8 @@ body {
     padding: 1rem 2rem;
     border-radius: 25px;
     font-weight: 600;
+    display: block;
+    margin: 0 auto;
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
@@ -720,6 +835,7 @@ body {
     background: var(--dark);
     color: var(--white);
     padding: 2rem 0;
+    border-radius: 20px;
     text-align: center;
 }
 
@@ -727,6 +843,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-radius: 20px;
 }
 
 .social-links {
@@ -820,12 +937,26 @@ body {
         gap: 1rem;
     }
     
-    .welcome-content {
+    .welcome-content,
+    .home-content {
         padding: 2rem 1.5rem;
     }
     
     .welcome-content h2 {
         font-size: 2rem;
+    }
+    
+    .brand-title {
+        font-size: 2rem;
+    }
+
+    .tagline {
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .info-text {
+        font-size: 0.98rem;
     }
     
     .game-modes {
@@ -863,6 +994,7 @@ body {
     
     .footer .container {
         flex-direction: column;
+        border-radius: 20px;
         gap: 1rem;
     }
     
@@ -889,8 +1021,21 @@ body {
     
     .welcome-content,
     .game-content,
-    .results-content {
+    .results-content,
+    .home-content {
         padding: 1.5rem 1rem;
+    }
+
+    .brand-title {
+        font-size: 1.6rem;
+    }
+
+    .tagline {
+        font-size: 0.95rem;
+    }
+
+    .info-text {
+        font-size: 0.95rem;
     }
     
     .modal-content {

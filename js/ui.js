@@ -1,7 +1,7 @@
 // UI Management Class
 class UIManager {
     constructor() {
-        this.currentScreen = 'welcome';
+        this.currentScreen = 'home';
         this.modal = null;
         this.initializeEventListeners();
     }
@@ -39,6 +39,21 @@ class UIManager {
             const results = this.getLastResults();
             if (results) game.shareResults(results);
         });
+
+        // Start button (Home -> Welcome)
+        const startBtn = document.getElementById('start-btn');
+        if (startBtn) {
+            startBtn.addEventListener('click', () => {
+                // Go to main menu
+                this.showWelcomeScreen();
+                // Remove the intro screen from DOM so it can't overlap or reappear
+                const home = document.getElementById('home-screen');
+                if (home && home.parentElement) {
+                    home.parentElement.removeChild(home);
+                }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
 
         // Modal controls
         document.querySelector('.close-modal')?.addEventListener('click', () => {
@@ -96,18 +111,31 @@ class UIManager {
         document.getElementById('welcome-screen').classList.add('active');
         this.currentScreen = 'welcome';
         this.updateScore(0, 1);
+        // Show header/footer again once we leave home
+        document.body.classList.remove('home-active');
+    }
+
+    showHomeScreen() {
+        this.hideAllScreens();
+        document.getElementById('home-screen').classList.add('active');
+        this.currentScreen = 'home';
+        this.updateScore(0, 1);
+        // Hide header/footer in home screen and center hero
+        document.body.classList.add('home-active');
     }
 
     showGameScreen() {
         this.hideAllScreens();
         document.getElementById('game-screen').classList.add('active');
         this.currentScreen = 'game';
+        document.body.classList.remove('home-active');
     }
 
     showResultsScreen() {
         this.hideAllScreens();
         document.getElementById('results-screen').classList.add('active');
         this.currentScreen = 'results';
+        document.body.classList.remove('home-active');
     }
 
     hideAllScreens() {
