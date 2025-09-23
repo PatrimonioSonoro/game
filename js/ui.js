@@ -28,7 +28,15 @@ class UIManager {
         });
 
         document.getElementById('play-again-btn')?.addEventListener('click', () => {
-            game.restartGame();
+            // If we have a current mode, restart same mode/difficulty
+            if (game && game.currentMode) {
+                game.restartGame();
+            } else {
+                // Fallback: start default instruments easy
+                game.startGame('instruments', 'easy');
+            }
+            // Ensure we navigate to the game screen
+            this.showGameScreen();
         });
 
         document.getElementById('home-btn')?.addEventListener('click', () => {

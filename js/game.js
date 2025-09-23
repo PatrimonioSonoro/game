@@ -11,7 +11,8 @@ class ColombianMusicGame {
         this.timeLeft = 30;
         this.timer = null;
         this.gameActive = false;
-        this.achievement1s = this.loadAchievements();
+        // Load achievements correctly
+        this.achievements = this.loadAchievements();
         this.gameStats = this.loadGameStats();
         this.audioContext = null;
         this.currentAudio = null;
@@ -21,16 +22,24 @@ class ColombianMusicGame {
 
     // Initialize game with selected mode and difficulty
     startGame(mode, difficulty) {
-        this.currentMode = mode;
-        this.currentDifficulty = difficulty;
+        // Force easy difficulty for instruments; allow selected difficulty for culture
+        this.currentMode = (mode === 'culture') ? 'culture' : 'instruments';
+        this.currentDifficulty = (this.currentMode === 'culture') ? (difficulty || 'easy') : 'easy';
         this.currentQuestionIndex = 0;
         this.score = 0;
         this.correctAnswers = 0;
         this.gameActive = true;
 
-        const difficultySettings = DataUtils.getDifficultySettings(difficulty);
+        const difficultySettings = DataUtils.getDifficultySettings(this.currentDifficulty);
         this.timeLeft = difficultySettings.timePerQuestion;
-        this.totalQuestions = difficultySettings.questionsCount;
+        // Determine total questions based on mode and available data for the selected (or forced) difficulty
+        if (this.currentMode === 'instruments') {
+            const easyInstruments = DataUtils.getInstrumentsByDifficulty('easy');
+            this.totalQuestions = Math.min(difficultySettings.questionsCount, easyInstruments.length);
+        } else {
+            const questionsByDiff = DataUtils.getCulturalQuestionsByDifficulty(this.currentDifficulty);
+            this.totalQuestions = Math.min(difficultySettings.questionsCount, questionsByDiff.length);
+        }
 
         // Reset instrument tracking for new game
         this.usedInstruments.clear();
@@ -38,7 +47,6 @@ class ColombianMusicGame {
 
         this.generateQuestions();
         this.showNextQuestion();
-        this.startTimer();
     }
 
     // Generate questions based on game mode and difficulty
@@ -54,13 +62,13 @@ class ColombianMusicGame {
     }
 
     generateInstrumentQuestions() {
-        // Get all instruments from all difficulty levels for random selection
-        const allInstruments = DataUtils.getAllInstruments();
+        // Use only EASY instruments defined in data.js
+        const allInstruments = DataUtils.getInstrumentsByDifficulty('easy');
         
         // Create a pool of available instruments, excluding already used ones
         this.availableInstruments = allInstruments.filter(inst => !this.usedInstruments.has(inst.id));
         
-        // If we don't have enough instruments, reset the used instruments (but this shouldn't happen with 9 instruments)
+        // If we don't have enough instruments, reset the used instruments
         if (this.availableInstruments.length < this.totalQuestions) {
             this.usedInstruments.clear();
             this.availableInstruments = [...allInstruments];
@@ -122,6 +130,8 @@ class ColombianMusicGame {
         
         // Reset timer
         const difficultySettings = DataUtils.getDifficultySettings(this.currentDifficulty);
+        // Ensure no duplicate timers
+        this.stopTimer();
         this.timeLeft = difficultySettings.timePerQuestion;
         this.updateTimer();
         
@@ -129,6 +139,9 @@ class ColombianMusicGame {
         if (question.audioSample) {
             this.playAudioSample(question.audioSample);
         }
+
+        // Start countdown for this question
+        this.startTimer();
     }
 
     playAudioSample(audioSrc) {

@@ -35,9 +35,7 @@ const COLOMBIAN_MUSIC_DATA = {
                 culturalInfo: 'Fundamental en las bandas de viento del Caribe colombiano, especialmente en el porro sabanero.',
                 image: 'assets/images/trombon.png',
                 audioSample: 'assets/audio/trombon.wav'
-            }
-        ],
-        medium: [
+            },
             {
                 id: 'piano',
                 name: 'Piano',
@@ -48,41 +46,23 @@ const COLOMBIAN_MUSIC_DATA = {
                 culturalInfo: 'Esencial en la música de salón del siglo XIX y XX en Colombia. Acompaña bambucos, pasillos y valses criollos. Compositores como Pedro Morales Pino y Guillermo Uribe Holguín lo utilizaron extensamente.',
                 image: 'assets/images/piano.png',
                 audioSample: 'assets/audio/piano.wav'
-            },
+            }
+
+        ],
+        medium: [
+            {
+                /* Instrumento */
+            }
         ],
         hard: [
             {
-                id: 'guacharaca',
-                name: 'Guacharaca',
-                description: 'Idiófono de fricción cilíndrico',
-                origin: 'Herencia indígena',
-                genres: ['Vallenato', 'Cumbia'],
-                sound: 'Rasposo y rítmico',
-                culturalInfo: 'Hecha del tallo seco de una planta, es única del Caribe colombiano.',
-                image: 'assets/images/guacharaca.jpg',
-                audioSample: 'assets/audio/guacharaca_sample.mp3'
+                /* Instrumento */
             },
             {
-                id: 'cununo',
-                name: 'Cununos',
-                description: 'Par de tambores cónicos',
-                origin: 'Herencia africana',
-                genres: ['Currulao', 'Bambuco Viejo'],
-                sound: 'Percusivo complementario',
-                culturalInfo: 'Tambores sagrados del Pacífico, uno macho y uno hembra.',
-                image: 'assets/images/cununos.jpg',
-                audioSample: 'assets/audio/cununos_sample.mp3'
+                /* Instrumento */
             },
             {
-                id: 'bandola',
-                name: 'Bandola',
-                description: 'Instrumento de cuerda pulsada',
-                origin: 'Adaptación colombiana',
-                genres: ['Bambuco', 'Pasillo', 'Danza'],
-                sound: 'Melódico y expresivo',
-                culturalInfo: 'Existen diferentes tipos: andina, oriental y llanera.',
-                image: 'assets/images/bandola.jpg',
-                audioSample: 'assets/audio/bandola_sample.mp3'
+                /* Instrumento */
             }
         ]
     },
