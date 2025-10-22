@@ -192,7 +192,7 @@ class UIManager {
                 </audio>
             </div>
             ${question.instrument.image ? `<img src="${question.instrument.image}" alt="${question.instrument.name}" class="instrument-image">` : ''}
-            <p><strong>Pista:</strong> ${question.instrument.description}</p>
+            
         `;
 
         // Setup play button functionality

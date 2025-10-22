@@ -6,45 +6,37 @@ const COLOMBIAN_MUSIC_DATA = {
             {
                 id: 'acordeon',
                 name: 'Acordeón',
-                description: 'Instrumento de viento con teclado y fuelle',
                 origin: 'Adoptado en el Caribe colombiano',
                 genres: ['Vallenato', 'Cumbia'],
                 sound: 'Melódico y expresivo',
                 culturalInfo: 'Llegó a Colombia a finales del siglo XIX y se convirtió en el alma del vallenato.',
-                image: 'assets/images/acordeon.png',
                 audioSample: 'assets/audio/acordeon_vallenato.wav'
             },
             {
                 id: 'guitarra',
                 name: 'Guitarra',
-                description: 'Instrumento de cuerda pulsada',
                 origin: 'Herencia española',
                 genres: ['Bambuco', 'Pasillo', 'Bolero'],
                 sound: 'Armónico y melódico',
                 culturalInfo: 'Base armónica de la música andina colombiana.',
-                image: 'assets/images/guitarra.png',
                 audioSample: 'assets/audio/guitarra.wav'
             },
             {
                 id: 'trombon',
                 name: 'Trombón',
-                description: 'Instrumento de viento-metal con vara deslizante',
                 origin: 'Adoptado en las bandas del Caribe  Colombiano',
                 genres: ['Porro', 'Cumbia', 'Fandango'],
                 sound: 'Grave y melódico',
                 culturalInfo: 'Fundamental en las bandas de viento del Caribe colombiano, especialmente en el porro sabanero.',
-                image: 'assets/images/trombon.png',
                 audioSample: 'assets/audio/trombon.wav'
             },
             {
                 id: 'piano',
                 name: 'Piano',
-                description: 'Instrumento de teclado con cuerdas percutidas por martillos',
                 origin: 'Introducido durante la época colonial, adoptado en la música culta y popular',
                 genres: ['Bambuco', 'Pasillo', 'Vals Criollo', 'Bolero'],
                 sound: 'Armónico y expresivo, con gran rango dinámico',
                 culturalInfo: 'Esencial en la música de salón del siglo XIX y XX en Colombia. Acompaña bambucos, pasillos y valses criollos. Compositores como Pedro Morales Pino y Guillermo Uribe Holguín lo utilizaron extensamente.',
-                image: 'assets/images/piano.png',
                 audioSample: 'assets/audio/piano.wav'
             }
 
