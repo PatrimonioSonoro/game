@@ -119,9 +119,8 @@ body.home-active .footer {
 
 /* Background image for Home screen */
 #home-screen {
-    background-image: url('../assets/images/fondo_game.jpg');
+    background-image: url('../assets/images/campesino_canta_banner.png');
     background-size: cover;
-    opacity: 95%;
     background-position: center;
     background-repeat: no-repeat;
     width: 100vw;
@@ -130,6 +129,20 @@ body.home-active .footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+
+#home-screen::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(6, 22, 35, 0.78) 0%,
+        rgba(6, 22, 35, 0.58) 45%,
+        rgba(6, 22, 35, 0.35) 100%
+    );
+    pointer-events: none;
 }
 
 /* Make home screen span full width (override .screen defaults) */
@@ -145,6 +158,28 @@ body.home-active .footer {
     border-radius: 0;
     padding: 3rem 1rem;
     text-align: center; /* center inline elements inside home content */
+    position: relative;
+    z-index: 1;
+    width: min(1100px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+    column-gap: 48px;
+}
+
+#home-screen .brand-title {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: left;
+    margin-top: 140px;
+    align-self: start;
+}
+
+#home-screen .info-card {
+    grid-column: 1;
+    grid-row: 2;
 }
 
 /* Improve text readability on home background */
@@ -157,6 +192,8 @@ body.home-active .footer {
 #home-screen .tagline {
     color: rgba(255,255,255,0.95);
     text-shadow: 0 1px 6px rgba(0,0,0,0.35);
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 /* Ensure the start button stands out on varied backgrounds */
@@ -493,6 +530,20 @@ body.home-active .footer {
     border-radius: 18px;
     box-shadow: 0 6px 22px var(--shadow);
     margin-bottom: 1.25rem;
+}
+
+#home-screen .brand-logo {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    justify-self: end;
+    align-self: center;
+    width: 520px;
+    height: auto;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    object-fit: contain;
+    transform: translateX(60px);
 }
 
 .instrument-image {
@@ -1046,6 +1097,33 @@ body.home-active .footer {
     .social-icon {
         width: 18px;
         height: 18px;
+    }
+
+    #home-screen .brand-logo {
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: center;
+        width: min(440px, 90vw);
+        transform: none;
+        margin: 0 auto 1rem;
+    }
+
+    #home-screen .home-content {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        row-gap: 14px;
+        column-gap: 0;
+        padding: 2.25rem 1rem;
+    }
+
+    #home-screen .brand-title {
+        grid-row: 2;
+        text-align: center;
+        margin-top: 44px;
+    }
+
+    #home-screen .info-card {
+        grid-row: 3;
     }
 }
 
