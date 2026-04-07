@@ -121,7 +121,7 @@ body.home-active .footer {
 #home-screen {
     background-image: url('../assets/images/campesino_canta_banner.png');
     background-size: cover;
-    background-position: center;
+    background-position: left center;
     background-repeat: no-repeat;
     width: 100vw;
     min-height: calc(100vh - 140px);
@@ -537,13 +537,13 @@ body.home-active .footer {
     grid-row: 1 / span 2;
     justify-self: end;
     align-self: center;
-    width: 520px;
+    width: 480px;
     height: auto;
     margin: 0;
     border-radius: 0;
     box-shadow: none;
     object-fit: contain;
-    transform: translateX(60px);
+    transform: translateX(140px);
 }
 
 .instrument-image {
@@ -1103,7 +1103,7 @@ body.home-active .footer {
         grid-column: 1;
         grid-row: 1;
         justify-self: center;
-        width: min(440px, 90vw);
+        width: min(360px, 86vw);
         transform: none;
         margin: 0 auto 1rem;
     }
@@ -1124,6 +1124,19 @@ body.home-active .footer {
 
     #home-screen .info-card {
         grid-row: 3;
+    }
+}
+
+@media (max-width: 480px) {
+    #home-screen {
+        min-height: 100vh;
+        background-position: right center;
+        background-size: cover;
+    }
+
+    #home-screen .brand-logo {
+        width: min(320px, 82vw);
+        margin: 0 auto 0.75rem;
     }
 }
 
